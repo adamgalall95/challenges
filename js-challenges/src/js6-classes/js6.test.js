@@ -45,7 +45,7 @@ describe("Testing Coordinate class", () => {
   });
 });
 
-xdescribe("Testing Alert class", () => {
+describe("Testing Alert class", () => {
   const logOutAlert = new Alert("Are you sure you want to log out?");
   const deleteAlert = new Alert(
     "Are you sure you want to delete this content?",
@@ -90,7 +90,7 @@ xdescribe("Testing Alert class", () => {
   });
 });
 
-xdescribe("Testing Loader class", () => {
+describe("Testing Loader class", () => {
   const htmlReference = { innerHTML: "" };
   const loader = new Loader(htmlReference);
 
@@ -132,7 +132,7 @@ xdescribe("Testing Loader class", () => {
   });
 });
 
-xdescribe("Testing Counter class", () => {
+describe("Testing Counter class", () => {
   let lowCount, highCount, noCount;
 
   beforeEach(() => {
@@ -234,7 +234,7 @@ xdescribe("Testing Counter class", () => {
   });
 });
 
-xdescribe("Testing Engine class", () => {
+describe("Testing Engine class", () => {
   let engine;
 
   beforeEach(() => {
