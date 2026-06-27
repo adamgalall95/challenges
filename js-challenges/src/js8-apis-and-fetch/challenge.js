@@ -17,8 +17,8 @@
  * @param {string} url - The url of the API to fetch from
  * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[]} The data from the API
  */
- export const getData = (url) => {
-  // Your code here
+export const getData = (url) => {
+  return fetch(url).then((response) => response.json());
 };
 
 /**
@@ -28,6 +28,9 @@
  * @returns {string[]} The list of names from the API
  */
 export const getNames = (url) => {
+  return fetch(url)
+    .then((response) => response.json())
+    .then((value) => value.map((ob) => ob.name));
   // Your code here
 };
 
@@ -38,7 +41,9 @@ export const getNames = (url) => {
  * @return {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[]} The employed people from the API
  */
 export const getEmployedPeople = (url) => {
-  // Your code here
+  return fetch(url)
+    .then((response) => response.json())
+    .then((lists) => lists.filter((list) => list.isEmployed));
 };
 
 /* Intermediate Challenges */
@@ -49,10 +54,18 @@ export const getEmployedPeople = (url) => {
  *
  * @param {string} url - The url of the API to fetch from
  * @param {string} id - The ID of the person object to return
- * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean} | string} A person object OR A string saying "Person not found"
+ * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean} | string}
+ * A person object OR A string saying "Person not found"
  */
 export const findPersonWithId = (url, id) => {
-  // Your code here
+  return fetch(url)
+    .then((response) => response.json())
+    .then((lists) => {
+      const person = lists.find((list) => list.id === id);
+      if (person) {
+        return person;
+      } else return "Person not found";
+    });
 };
 
 /**
@@ -61,7 +74,8 @@ export const findPersonWithId = (url, id) => {
  *
  * @param {string} url - The url of the API to fetch from
  * @param {string} interest - The interest to match
- * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[] | string} A group of person objects OR A string saying "No people with interest found"
+ * @returns {{id: string, name: string, age: number, height: number, interests: string[], isEmployed: boolean}[] | string}
+ * A group of person objects OR A string saying "No people with interest found"
  */
 export const getPeopleWithMatchingInterests = (url, interest) => {
   // Your code here
