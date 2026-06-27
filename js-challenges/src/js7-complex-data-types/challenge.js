@@ -17,6 +17,7 @@
  * @returns {string[]} A list of the employees quotes for the website
  */
 export const getEmployeeQuotes = (employeeArr) => {
+  return employeeArr.map((list) => list.quote);
   // Write code here
 };
 
@@ -27,7 +28,7 @@ export const getEmployeeQuotes = (employeeArr) => {
  * @returns {{name: string, quote: string, yearsEmployed: number, isManagement: boolean}[]} An array containing only managers
  */
 export const getTheManagers = (employeeArr) => {
-  // Write code here
+  return employeeArr.filter((list) => list.isManagement);
 };
 
 /**
@@ -37,6 +38,7 @@ export const getTheManagers = (employeeArr) => {
  * @returns {number} The number of the keys on the object
  */
 export const getNumberOfKeys = (object) => {
+  return Object.keys(object).length;
   // Write code here
 };
 
@@ -49,9 +51,7 @@ export const getNumberOfKeys = (object) => {
  * @param {{name: string, price: number, hasFreeShipping: boolean, quantity: number}[]} shoppingBasketArr - An array of basket items for an online shop
  * @returns {{name: string, price: number, hasFreeShipping: boolean, quantity: number}} The most expensive item in the shopping basket
  */
-export const findMostExpensiveItem = (shoppingBasketArr) => {
-  // Write code here
-};
+export const findMostExpensiveItem = (shoppingBasketArr) => {};
 
 /**
  * A function which add a new key of totalPrice to each shopping basket item in the array where total cost is
